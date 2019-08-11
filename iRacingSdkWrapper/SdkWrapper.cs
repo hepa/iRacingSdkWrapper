@@ -11,7 +11,7 @@ namespace iRacingSdkWrapper
     /// <summary>
     /// Provides a useful wrapper of the iRacing SDK.
     /// </summary>
-    public sealed class SdkWrapper
+    public sealed class SdkWrapper : ISdkWrapper
     {
         #region Fields
 
@@ -438,16 +438,16 @@ namespace iRacingSdkWrapper
 
         public class TelemetryUpdatedEventArgs : SdkUpdateEventArgs
         {
-            public TelemetryUpdatedEventArgs(TelemetryInfo info, double time) : base(time)
+            public TelemetryUpdatedEventArgs(ITelemetryInfo info, double time) : base(time)
             {
                 _TelemetryInfo = info;
             }
 
-            private readonly TelemetryInfo _TelemetryInfo;
+            private readonly ITelemetryInfo _TelemetryInfo;
             /// <summary>
             /// Gets the telemetry info object.
             /// </summary>
-            public TelemetryInfo TelemetryInfo { get { return _TelemetryInfo; } }
+            public ITelemetryInfo TelemetryInfo { get { return _TelemetryInfo; } }
         }
 
         #endregion

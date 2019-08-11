@@ -61,7 +61,7 @@ namespace iRacingSdkWrapper
     /// Represents a telemetry parameter of the specified type.
     /// </summary>
     /// <typeparam name="T">The .NET type of this parameter (int, char, float, double, bool, or arrays)</typeparam>
-    public sealed class TelemetryValue<T> : TelemetryValue 
+    public sealed class TelemetryValue<T> : TelemetryValue, ITelemetryValue<T>
     {
         public TelemetryValue(iRSDKSharp.iRacingSDK sdk, string name)
             : base(sdk, name)
